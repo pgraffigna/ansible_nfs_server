@@ -7,10 +7,12 @@ roles:
 - nfs
 
 ---
-Para que el cliente pueda acceder a los recursos necesita hacer
+### Para que el cliente pueda acceder a los recursos necesita hacer
 
 apt update && sudo apt install -y nfs-common
+
 mkdir -p /mnt/TEST
+
 mount IP_SERVIDOR:COMPARTIDA  /mnt/TEST
 
 		 
