@@ -1,0 +1,24 @@
+---
+- name: Instalación de dependencias
+  apt:
+    name: nfs-kernel-server
+    update_cache: yes
+
+- name: Creacion de directorio a compartir
+  file:
+    path: /home/nfs
+    state: directory
+    mode: 0777       
+
+- name: Agregar linea a archivo de configuracion
+  lineinfile:
+    path: /etc/exports
+    line: /home/nfs 192.168.0.5(rw,sync,no_subtree_check)
+
+- name: Exportar directorio
+  shell: exportfs -a    
+  notify: reiniciar
+
+ 
+
+

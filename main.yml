@@ -1,0 +1,8 @@
+---
+- hosts: ubuntu
+  become: true
+
+  roles:	 
+    - firewall
+    - nfs
+
